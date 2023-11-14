@@ -24,7 +24,7 @@ class LoginSectionWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-            height: isRegister ? 600 : 500,
+            height: isRegister ? 650 : 500,
             child: Container(
               width: 350,
               decoration: BoxDecoration(
@@ -61,23 +61,6 @@ class LoginSectionWidget extends StatelessWidget {
                   isRegister
                       ? const RegisterFormWidget()
                       : const LoginFormWidget(),
-                  Container(
-                    height: 45,
-                    width: 130,
-                    decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                            colors: [Color(0xff9DCEFF), Color(0xff92A3FD)]),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: const Center(
-                      child: Text(
-                        'View',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                      ),
-                    ),
-                  )
                 ],
               ),
             ))

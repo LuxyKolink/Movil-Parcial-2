@@ -12,13 +12,23 @@ class LoginPage extends StatelessWidget {
     int selectedOption = Provider.of<SelectedProvider>(context).selectedOption;
 
     if (selectedOption == 1) {
-      return const Center(
-        child: LoginSectionWidget(isRegister: true),
+      return Scaffold(
+        backgroundColor: const Color(0xff9DCEFF).withOpacity(0.3),
+        body: const Center(
+          child: SingleChildScrollView(
+            child: LoginSectionWidget(isRegister: true),
+          ),
+        ),
       );
     }
 
-    return const Center(
-      child: LoginSectionWidget(),
+    return Scaffold(
+      backgroundColor: const Color(0xff9DCEFF).withOpacity(0.3),
+      body: const Center(
+        child: SingleChildScrollView(
+          child: LoginSectionWidget(),
+        ),
+      ),
     );
   }
 }

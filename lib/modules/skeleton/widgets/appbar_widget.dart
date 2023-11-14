@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarWidget({super.key});
+  final Function() onTap;
+  const AppBarWidget({super.key, required this.onTap});
 
   @override
   Size get preferredSize => const Size.fromHeight(56);
@@ -19,7 +20,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
-        onTap: () {},
+        onTap: onTap,
         child: Container(
           margin: const EdgeInsets.all(10),
           alignment: Alignment.center,
@@ -35,7 +36,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         GestureDetector(
-          onTap: () {},
+          onTap: onTap,
           child: Container(
             margin: const EdgeInsets.all(10),
             alignment: Alignment.center,
