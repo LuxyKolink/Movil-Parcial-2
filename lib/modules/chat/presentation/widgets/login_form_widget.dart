@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parcial2/modules/chat/presentation/bloc/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../common/utils/colors.utils.dart';
-import '../../../skeleton/bloc/selected_page_provider.dart';
 import 'text_form_field_widget.dart';
 
 class LoginFormWidget extends StatefulWidget {
@@ -30,22 +30,22 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
     super.dispose();
   }
 
-  // void signIn() async {
-  //   final authService = Provider.of<AuthService>(context, listen: false);
-  //   try {
-  //     await authService.signIn(_email.text, _password.text);
-  //   } catch (e) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //         content: Text(e.toString()),
-  //       ),
-  //     );
-  //   }
-  // }
+  void signIn() async {
+    final authProvider = Provider.of<UserProvider>(context, listen: false);
+    try {
+      await authProvider.signIn(_email.text, _password.text);
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    var loginState = context.watch<SelectedProvider>();
     return Column(
       children: [
         TextFormFieldWidget(
@@ -63,7 +63,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
         ),
         ElevatedButton(
           onPressed: () {
-            loginState.changePage(1);
+            signIn();
           },
           style: const ButtonStyle(
               elevation: MaterialStatePropertyAll(0),
@@ -78,7 +78,7 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                 borderRadius: BorderRadius.circular(50)),
             child: const Center(
               child: Text(
-                'View',
+                'Ingresar',
                 style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:parcial2/modules/skeleton/bloc/selected_page_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'modules/chat/presentation/bloc/user_provider.dart';
+import 'modules/skeleton/bloc/selected_page_provider.dart';
 import 'modules/skeleton/skeleton.dart';
 import 'config/routes/routes.dart';
 import 'config/theme/theme.dart';
@@ -19,7 +20,10 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (context) => SelectedProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

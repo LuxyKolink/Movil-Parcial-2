@@ -124,7 +124,7 @@ class _RegisterFormWidgetState extends State<RegisterFormWidget> {
                   borderRadius: BorderRadius.circular(50)),
               child: const Center(
                 child: Text(
-                  'View',
+                  'Registrarse',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
