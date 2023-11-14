@@ -32,8 +32,11 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
 
   void signIn() async {
     final authProvider = Provider.of<UserProvider>(context, listen: false);
+    final email = _email.text;
+    final password = _password.text;
     try {
-      await authProvider.signIn(_email.text, _password.text);
+      await authProvider.signIn(email, password);
+      print('Sign In Completeded');
     } catch (e) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
